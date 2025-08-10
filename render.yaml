@@ -10,7 +10,7 @@ services:
       name: omnistrike
       runtime: python
       buildCommand: "./build.sh"
-      startCommand: "cd src/cards && gunicorn cards.asgi:application -k uvicorn.workers.UvicornWorker"
+      startCommand: "cd src/cards_admin && gunicorn cards_admin.asgi:application -k uvicorn.workers.UvicornWorker"
       envVars:
           - key: DATABASE_URL
             fromDatabase:
