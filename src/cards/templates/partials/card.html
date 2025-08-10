@@ -1,0 +1,29 @@
+{% if print.print_type.name == 'Standard' %}
+  <div class="card standard {{ print.print_palette.name|lower }}">
+    {% if print.card.card_type.name == 'Energy Source' %}
+      {% include 'partials/standard/energy_source_card.html' %}
+    {% elif print.card.card_type.name == 'Creature' %}
+      {% include 'partials/standard/creature_card.html' %}
+    {% elif print.card.card_type.name == 'Skill' %}
+      {% include 'partials/standard/skill_card.html' %}
+    {% else %}
+      {% include 'partials/standard/blank_card.html' %}
+    {% endif %}
+  </div>
+{% elif print.print_type.name == 'Full Art' %}
+  <div class="card full-art {{ print.print_palette.name|lower }}" style="background-image: url('{{ print.image.url }}')">
+    {% if print.card.card_type.name == 'Energy Source' %}
+      {% include 'partials/full_art/energy_source_card.html' %}
+    {% elif print.card.card_type.name == 'Creature' %}
+      {% include 'partials/full_art/creature_card.html' %}
+    {% elif print.card.card_type.name == 'Skill' %}
+      {% include 'partials/full_art/skill_card.html' %}
+    {% else %}
+      {% include 'partials/full_art/blank_card.html' %}
+    {% endif %}
+  </div>
+{% else %}
+  <div class="card">
+    {% include 'partials/blank_card.html' %}
+  </div>
+{% endif %}

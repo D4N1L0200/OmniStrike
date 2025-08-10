@@ -1,0 +1,24 @@
+{% if print.card.subtype == 'Basic' %}
+  <div class="card-bar">
+    <p>{{ print.card.name }}</p>
+  </div>
+  <div class="card-bar">
+    <p>{{ print.card.card_type }}</p>
+    <p>{{ print.card_set.code }} - {{ print.number_set }}/{{ print.card_set.prints.count }}</p>
+  </div>
+{% elif print.card.subtype == 'Special' %}
+  <div class="card-bar">
+    <p>{{ print.card.name }}</p>
+  </div>
+  <div class="card-bottom">
+    <div class="card-bar">
+      <p>{{ print.card.card_type }}</p>
+      <p>{{ print.card_set.code }} - {{ print.number_set }}/{{ print.card_set.prints.count }}</p>
+    </div>
+    <div class="card-block">
+      <p>{{ print.card.description }}</p>
+    </div>
+  </div>
+{% else %}
+  {% include 'partials/blank_card.html' %}
+{% endif %}

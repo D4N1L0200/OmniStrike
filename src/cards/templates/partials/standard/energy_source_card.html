@@ -1,0 +1,13 @@
+<div class="card-bar">
+  <p>{{ print.card.name }}</p>
+</div>
+<div class="card-block">
+  <img src="{{ print.image.url }}" alt="{{ print.card.name }}" />
+</div>
+<div class="card-bar">
+  <p>{{ print.card.card_type }}</p>
+  <p>{{ print.card_set.code }} - {{ print.number_set }}/{{ print.card_set.prints.count }}</p>
+</div>
+<div class="card-block">
+  <p>{{ print.card.description }}</p>
+</div>

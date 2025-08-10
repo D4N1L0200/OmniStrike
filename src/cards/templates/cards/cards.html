@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Index
+{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div class="content">
+      <h1>Cards</h1>
+      <form action="{% url 'cards' %}" method="get">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Search" value="{{ query }}" />
+        <button type="submit">Search</button>
+      </form>
+      <div class="cards">
+        {% for print in card_prints %}
+          <a href="{% url 'card_detail' print.id %}" class="card-link">{% include 'partials/card.html' %}</a>
+        {% empty %}
+          <p>No cards found.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}

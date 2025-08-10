@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'cards' %}" class="card-link">
+    <div class="full-screen-wrapper">
+      {% include 'partials/card.html' %}
+    </div>
+  </a>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/full_screen_wrapper.js' %}"></script>
+{% endblock %}
