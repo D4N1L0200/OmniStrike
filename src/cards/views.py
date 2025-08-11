@@ -1,10 +1,10 @@
 from django.db.models import Q  # type: ignore
 from .models import CardPrint, Card  # type: ignore
-from django.shortcuts import render, get_object_or_404  # type: ignore
+from django.shortcuts import render, get_object_or_404, redirect  # type: ignore
 
 
-def home(request):
-    return render(request, "home.html")
+def home_redirect(request):
+    return redirect("cards")
 
 
 def cards(request):
